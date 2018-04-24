@@ -10,3 +10,4 @@ It's easy to install, just put the class.FortniteStatus.php in your directory an
 Have fun!
 
 Sam
+https://fortnitestatus.com/
