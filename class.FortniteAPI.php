@@ -4,7 +4,7 @@
 /*	FortniteAPI.com
 /*	aortniteapi.com, wenters.com and fornitestatus.com are not affiliated with Epicgames.
 /*
-/*	Api version: 1.0. 26 April 2018.
+/*	Api version: 1.1. 29 April 2018.
 /*
 /*	Created by Sam from Wenters.com.
 /*----------------------------------------------------------*/
@@ -21,17 +21,14 @@ class FortniteAPI
 		$this->key = func_get_arg(0);
 	}
 
-	public function getUserID()
+	public function getUserID($username)
 	{
-		$username = func_get_arg(0);
-
 		return $this->post('getUserID', ['username' => $username]);
 	}
 
-	public function getPlayerData()
+	public function getPlayerData($username, $platform)
 	{
-		$username = func_get_arg(0);
-		$platform = func_get_arg(1); // ps4, xb1 or pc
+		// $platform = ps4, xb1 or pc
 
 		$uid = $this->getUserID($username)->uid; // this is required because we need to get the user id.
 
@@ -40,11 +37,8 @@ class FortniteAPI
 		return $data;
 	}
 
-	public function getPlayerDataFromID()
+	private function getPlayerDataFromID($uid, $platform)
 	{
-		$uid = func_get_arg(0);
-		$platform = func_get_arg(1);
-
 		return $this->post('playerData', ['user_id' => $uid, 'platform' => $platform]);
 	}
 
@@ -61,6 +55,16 @@ class FortniteAPI
 	public function getStatus()
 	{
 		return $this->post('getStatus', []);
+	}
+
+	public function getLeaderboard($platform = 'pc', $type = 'solo')
+	{
+		return $this->post('getLeaderboard', ['platform' => $platform, 'type' => $type]);
+	}
+
+	public function getPatchNotes()
+	{
+		return $this->post('getPatchNotes', []);
 	}
 
 	private function post($type, $data)
