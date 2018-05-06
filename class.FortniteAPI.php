@@ -2,9 +2,9 @@
 
 /*----------------------------------------------------------*/
 /*	FortniteAPI.com
-/*	fortniteapi.com, wenters.com and fornitestatus.com are not affiliated with Epicgames.
+/*	aortniteapi.com, wenters.com and fornitestatus.com are not affiliated with Epicgames.
 /*
-/*	Api version: 1.1. 29 April 2018.
+/*	Api version: 1.2. 6 May 2018.
 /*
 /*	Created by Sam from Wenters.com.
 /*----------------------------------------------------------*/
@@ -26,20 +26,20 @@ class FortniteAPI
 		return $this->post('getUserID', ['username' => $username]);
 	}
 
-	public function getPlayerData($username, $platform)
+	public function getPlayerData($username, $platform, $window = 'alltime')
 	{
 		// $platform = ps4, xb1 or pc
 
 		$uid = $this->getUserID($username)->uid; // this is required because we need to get the user id.
 
-		$data = $this->getPlayerDataFromID($uid, $platform);
+		$data = $this->getPlayerDataFromID($uid, $platform, $window);
 
 		return $data;
 	}
 
-	private function getPlayerDataFromID($uid, $platform)
+	private function getPlayerDataFromID($uid, $platform, $window = 'alltime')
 	{
-		return $this->post('playerData', ['user_id' => $uid, 'platform' => $platform]);
+		return $this->post('playerData', ['user_id' => $uid, 'platform' => $platform, 'window' => $window]);
 	}
 
 	public function getStore($language = 'en')
@@ -47,9 +47,9 @@ class FortniteAPI
 		return $this->post('getStore', ['language' => $language]);
 	}
 
-	public function getNews($rows = 5)
+	public function getNews($rows = 5, $language = 'en')
 	{
-		return $this->post('getNews', ['rows' => $rows]);
+		return $this->post('getNews', ['rows' => $rows, 'language' => $language]);
 	}
 
 	public function getStatus()
@@ -65,6 +65,11 @@ class FortniteAPI
 	public function getPatchNotes()
 	{
 		return $this->post('getPatchNotes', []);
+	}
+
+	public function getUsernameFromId($ids = null) // please enter an array with user ids
+	{
+		return $this->post('getUsername', ['ids' => $ids]);
 	}
 
 	private function post($type, $data)
