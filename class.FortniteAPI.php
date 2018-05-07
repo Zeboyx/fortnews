@@ -1,10 +1,8 @@
-<?php
-
 /*----------------------------------------------------------*/
 /*	FortniteAPI.com
 /*	aortniteapi.com, wenters.com and fornitestatus.com are not affiliated with Epicgames.
 /*
-/*	Api version: 1.2. 6 May 2018.
+/*	Api version: 1.3. 7 May 2018.
 /*
 /*	Created by Sam from Wenters.com.
 /*----------------------------------------------------------*/
@@ -59,7 +57,7 @@ class FortniteAPI
 
 	public function getLeaderboard($platform = 'pc', $type = 'solo')
 	{
-		return $this->post('getLeaderboard', ['platform' => $platform, 'type' => $type]);
+		return $this->post('getLeaderboard', ['platform' => $platform, 'gamemode' => $type]);
 	}
 
 	public function getPatchNotes()
@@ -99,5 +97,3 @@ class FortniteAPI
 		return $output;
 	}
 }
-
-?>
