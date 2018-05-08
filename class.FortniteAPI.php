@@ -2,7 +2,7 @@
 
 /*----------------------------------------------------------*/
 /*	FortniteAPI.com
-/*	aortniteapi.com, wenters.com and fornitestatus.com are not affiliated with Epicgames.
+/*	fortniteapi.com, wenters.com and fornitestatus.com are not affiliated with Epicgames.
 /*
 /*	Api version: 1.4. 8 May 2018.
 /*
