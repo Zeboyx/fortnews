@@ -1,8 +1,10 @@
+<?php
+
 /*----------------------------------------------------------*/
 /*	FortniteAPI.com
 /*	aortniteapi.com, wenters.com and fornitestatus.com are not affiliated with Epicgames.
 /*
-/*	Api version: 1.3. 7 May 2018.
+/*	Api version: 1.4. 8 May 2018.
 /*
 /*	Created by Sam from Wenters.com.
 /*----------------------------------------------------------*/
@@ -55,9 +57,14 @@ class FortniteAPI
 		return $this->post('getStatus', []);
 	}
 
-	public function getLeaderboard($platform = 'pc', $type = 'solo')
+	public function getLeaderboard($platform = 'pc', $type = 'solo') // pc, ps4 or xb1 -- solo, duo or squad
 	{
-		return $this->post('getLeaderboard', ['platform' => $platform, 'gamemode' => $type]);
+		return $this->post('getLeaderboard', ['platform' => $platform, 'gamemode' => $type, 'window' => 'top_1_wins']);
+	}
+
+	public function getTop10($window = 'top_10_kills') // top_10_kills, total_wins or total_score
+	{
+		return $this->post('getLeaderboard', ['window' => $window]);
 	}
 
 	public function getPatchNotes()
@@ -97,3 +104,5 @@ class FortniteAPI
 		return $output;
 	}
 }
+
+?>
