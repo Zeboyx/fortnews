@@ -27,8 +27,8 @@ class FortniteAPI
 
 	/**
 	 * Get Epic Games user id out of an username.
-	 * @param  string $username (Fortnite username)
-	 * @return object 			Decoded JSON response body
+	 * @param  string $username     (Fortnite username)
+	 * @return object               Decoded JSON response body
 	 */
 	public function getUserID($username)
 	{
@@ -37,9 +37,9 @@ class FortniteAPI
 
 	/**
 	 * Get Fortnite user stats
-	 * @param  string $uid 		(Epic Games user id)
-	 * @param  string $platform (pc, ps4 or xb1)
-	 * @return object 			Decoded JSON response body
+	 * @param  string $uid          (Epic Games user id)
+	 * @param  string $platform     (pc, ps4 or xb1)
+	 * @return object               Decoded JSON response body
 	 */
 	private function getPlayerDataFromID($uid, $platform, $window = 'alltime')
 	{
@@ -48,9 +48,9 @@ class FortniteAPI
 
 	/**
 	 * Get Epic Games user id out of an username.and the stats of the user in one function instead of two.
-	 * @param  string $username (Fortnite username)
-	 * @param  string $platform (pc, ps4 or xb1)
-	 * @return object 			Decoded JSON response body
+	 * @param  string $username      (Fortnite username)
+	 * @param  string $platform      (pc, ps4 or xb1)
+	 * @return object                Decoded JSON response body
 	 */
 	public function getPlayerData($username, $platform, $window = 'alltime')
 	{
@@ -63,8 +63,8 @@ class FortniteAPI
 
 	/**
 	 * Get Fortnite store (in-game store)
-	 * @param  string $language (only EN supported at this moment)
-	 * @return object 			Decoded JSON response body
+	 * @param  string $language      (only EN supported at this moment)
+	 * @return object                Decoded JSON response body
 	 */
 	public function getStore($language = 'en')
 	{
@@ -73,9 +73,9 @@ class FortniteAPI
 
 	/**
 	 * Get Fortnite news (in-game news)
-	 * @param  string $rows 	(amount of news messages)
-	 * @param  string $language (only EN supported at this moment)
-	 * @return object 			Decoded JSON response body
+	 * @param  string $rows          (amount of news messages)
+	 * @param  string $language      (only EN supported at this moment)
+	 * @return object                Decoded JSON response body
 	 */
 	public function getNews($rows = 5, $language = 'en')
 	{
@@ -84,7 +84,7 @@ class FortniteAPI
 
 	/**
 	 * Get the Fortnite server status
-	 * @return object 			Decoded JSON response body
+	 * @return object                Decoded JSON response body
 	 */
 	public function getStatus()
 	{
@@ -93,9 +93,9 @@ class FortniteAPI
 
 	/**
 	 * Get leaderboard (top 50)
-	 * @param  string $platform (pc, ps4 or xb1)
-	 * @param  string $type 	(solo, duo or squad)
-	 * @return object 			Decoded JSON response body
+	 * @param  string $platform      (pc, ps4 or xb1)
+	 * @param  string $type          (solo, duo or squad)
+	 * @return object                Decoded JSON response body
 	 */
 	public function getLeaderboard($platform = 'pc', $type = 'solo')
 	{
@@ -104,8 +104,8 @@ class FortniteAPI
 
 	/**
 	 * Get the top players of the world (top 10)
-	 * @param  string $window 	(top_10_kills, total_wins or total_score)
-	 * @return object 			Decoded JSON response body
+	 * @param  string $window        (top_10_kills, total_wins or total_score)
+	 * @return object                Decoded JSON response body
 	 */
 	public function getTop10($window = 'top_10_kills')
 	{
@@ -114,7 +114,7 @@ class FortniteAPI
 
 	/**
 	 * Get update patchnotes
-	 * @return object 			Decoded JSON response body
+	 * @return object                Decoded JSON response body
 	 */
 	public function getPatchNotes()
 	{
@@ -123,8 +123,8 @@ class FortniteAPI
 
 	/**
 	 * Get Fortnite username out of an user id
-	 * @param  string $uid 		(Epic Games user id)
-	 * @return object 			Decoded JSON response body
+	 * @param  string $uid 	         (Epic Games user id)
+	 * @return object                Decoded JSON response body
 	 */
 	public function getUsernameFromId($ids = null) // please enter an array with user ids
 	{
@@ -133,7 +133,7 @@ class FortniteAPI
 
 	/**
 	 * POST function to the FortniteAPI servers.
-	 * @return object 			Decoded JSON response body
+	 * @return object                Decoded JSON response body
 	 */
 	private function post($type, $data)
 	{
