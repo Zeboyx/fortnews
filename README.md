@@ -1,5 +1,5 @@
 # FortniteAPI.com
-Fortnite Status API
+Fortnite API (get player stats, leaderboards and more)
 
 Hi,
 
