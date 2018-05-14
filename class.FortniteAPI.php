@@ -4,7 +4,7 @@
 /*	FortniteAPI.com
 /*	fortniteapi.com, wenters.com and fornitestatus.com are not affiliated with Epicgames.
 /*
-/*	Api version: 1.4. 8 May 2018.
+/*	Api version: 2. 14 May 2018.
 /*
 /*	Created by Sam from Wenters.com.
 /*----------------------------------------------------------*/
