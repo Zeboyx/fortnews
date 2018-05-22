@@ -1,10 +1,10 @@
 <?php
 
 /*----------------------------------------------------------*/
-/*	FortniteAPI.com
-/*	fortniteapi.com, wenters.com and fornitestatus.com are not affiliated with Epicgames.
+/*	TheAPInetwork.com
+/*	theapinetwork.com, fortniteapi.com and wenters.com are not affiliated with Epicgames.
 /*
-/*	Api version: 2. 14 May 2018.
+/*	Api version: 2.1, 22 May 2018.
 /*
 /*	Created by Sam from Wenters.com.
 /*----------------------------------------------------------*/
@@ -13,7 +13,6 @@ class FortniteAPI
 {
 	private $api = 'https://fortniteapi.com/api/';
 	private $search = 'https://fortniteapi.com/docs/search/';
-
 	private $key;
 
 	/**
@@ -32,7 +31,7 @@ class FortniteAPI
 	 */
 	public function getUserID($username)
 	{
-		return $this->post('getUserID', ['username' => $username]);
+		return $this->post('getUserID', ['username' => urlencode($username)]);
 	}
 
 	/**
@@ -55,9 +54,7 @@ class FortniteAPI
 	public function getPlayerData($username, $platform, $window = 'alltime')
 	{
 		$uid = $this->getUserID($username)->uid; // this is required because we need to get the user id.
-
 		$data = $this->getPlayerDataFromID($uid, $platform, $window);
-
 		return $data;
 	}
 
@@ -132,6 +129,16 @@ class FortniteAPI
 	}
 
 	/**
+	 * Get Battle Pass challenges
+	 * @param  string $season 	    ('season' + season id)
+	 * @return object                Decoded JSON response body
+	 */
+	public function getChallenges($season = 'season4')
+	{
+		return $this->post('getChallenges', ['season' => $season]);
+	}
+
+	/**
 	 * POST function to the FortniteAPI servers.
 	 * @return object                Decoded JSON response body
 	 */
@@ -140,17 +147,13 @@ class FortniteAPI
 		$ch = curl_init();
 
 		curl_setopt($ch, CURLOPT_URL, $this->api . $type);
-
 		curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: ' . $this->key]);
-
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-
+		
 		$output = curl_exec($ch);
-
 		curl_close($ch);
 
 		$output = json_decode($output);
