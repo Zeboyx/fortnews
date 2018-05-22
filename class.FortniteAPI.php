@@ -133,9 +133,9 @@ class FortniteAPI
 	 * @param  string $season 	    ('season' + season id)
 	 * @return object                Decoded JSON response body
 	 */
-	public function getChallenges($season = 'season4')
+	public function getChallenges($season = 'season4', $language = 'en')
 	{
-		return $this->post('getChallenges', ['season' => $season]);
+		return $this->post('getChallenges', ['season' => $season, 'language' => $language]);
 	}
 
 	/**
