@@ -4,12 +4,12 @@
 /*	TheAPInetwork.com
 /*	theapinetwork.com, fortniteapi.com and wenters.com are not affiliated with Epicgames.
 /*
-/*	Api version: 2.1, 22 May 2018.
+/*	Api version: 2.2, 11 June 2018.
 /*
 /*	Created by Sam from Wenters.com.
 /*----------------------------------------------------------*/
 
-class FortniteAPI 
+class FortniteAPI
 {
 	private $api = 'https://fortniteapi.com/api/';
 	private $search = 'https://fortniteapi.com/docs/search/';
@@ -136,6 +136,15 @@ class FortniteAPI
 	public function getChallenges($season = 'season4', $language = 'en')
 	{
 		return $this->post('getChallenges', ['season' => $season, 'language' => $language]);
+	}
+
+	/**
+	 * Get Battle Royale upcoming items
+	 * @return object                Decoded JSON response body
+	 */
+	public function getUpcoming()
+	{
+		return $this->post('getUpcoming', []);
 	}
 
 	/**
