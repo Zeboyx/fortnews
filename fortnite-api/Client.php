@@ -37,7 +37,7 @@ class FortniteClient
 		$this->pem_path = realpath(dirname(__FILE__) . '/cacert.pem');
 	}
 
-	public function setKey($key = '')
+	public function setKey($key = '8fadebbd76f40c83dc7b407525b47b45')
 	{
 		$this->auth->setKey($key);
 	}
